@@ -23,6 +23,7 @@ username = config.get('Spotify', 'UserName')
 client_id = config.get('Spotify', 'client_id')
 client_secret = config.get('Spotify', 'client_secret')
 lastFMUserName = config.get('Last.FM', 'UserName')
+redirect_uri = config.get('Spotify', 'redirect-uri')
 
 
 def getSimilar(artist, track, count = 20, playlistName = None):
@@ -41,6 +42,9 @@ def getSimilar(artist, track, count = 20, playlistName = None):
 
 def getUserTopTracks(lastFMUserName = lastFMUserName, period = "1month", count = 20, playlistName = None):
     
+    print ("%s user name %s" % (username))
+    print (client-id)
+    print (client-secret)
     print ("%s\'s top %s tracks (%s)" % (lastFMUserName, count, period))
     result = lastFM.getTopTracks(lastFMUserName, period = period, limit = count) #period="overall"
     
@@ -474,9 +478,9 @@ def showTagInfo (tag):
 def generatePlaylist(track_IDs, playlistName):
     """."""
 
-    if len(track_IDs) is not 0:
+    if len(track_IDs) != 0:
         scope = "playlist-modify-public"
-        token = util.prompt_for_user_token(username=username, client_id=client_id, client_secret=client_secret, redirect_uri="http://localhost:80", scope=scope)
+        token = util.prompt_for_user_token(username=username, client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri, scope=scope)
         
         if token:
             sp = spotipy.Spotify(auth=token)
