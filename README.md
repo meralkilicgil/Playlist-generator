@@ -1,6 +1,20 @@
 # Playlist-generator
-term project
+Installation
+1.Download repository
+2.Install requirements
+3.Fill config.ini file with your API keys
 
+Note: On the first run, open given url with a browser and complete authorization. Then paste redirected url to the console.
+
+Usage
+Get Similar Tracks
+parameters:
+
+artist (required):
+track (required):
+count (optional): default = 20
+playlistName (optional): default = "Similar Tracks to {track}"
+main.py getsimilar --artist="muse" --track="survivaş" --count=20 --playlistName="example playlist"
 
 python main.py toptracksbycountry --country=turkey --count=10
 
