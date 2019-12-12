@@ -23,4 +23,4 @@ firstly vim is open, exit vim then continue
 
 localhost:5000/topTurkey : creates top 50 tracks of turkey with "top tukey" playlist name
 
-localhost:5000/getSimilar/<artist>_<track>_<count>_<name> : creates similar songs 'track' by 'artist'  with number of 'count' to the playlist name 'name'.
+localhost:5000/getSimilar/artist_track_count_name : creates similar songs 'track' by 'artist'  with number of 'count' to the playlist name 'name'.
