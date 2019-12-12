@@ -12,6 +12,16 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import fire
 from importlib import reload
 
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/topTurkey')
+def get_Top():
+   return getTopTracksByCountry("Turkey", 50, "top turkey")
+
+@app.route('/getSimilar/<artist>_<track>_<count>_<name>')
+def get_similar(artist, track, count, name):
+    return getSimilar(artist, track, count, name)
 
 reload(sys)    # to re-enable sys.setdefaultencoding()
 #sys.setdefaultencoding('utf-8')
@@ -41,10 +51,7 @@ def getSimilar(artist, track, count = 20, playlistName = None):
 
 
 def getUserTopTracks(lastFMUserName = lastFMUserName, period = "1month", count = 20, playlistName = None):
-    
-    print ("%s user name %s" % (username))
-    print (client-id)
-    print (client-secret)
+
     print ("%s\'s top %s tracks (%s)" % (lastFMUserName, count, period))
     result = lastFM.getTopTracks(lastFMUserName, period = period, limit = count) #period="overall"
     
@@ -213,7 +220,7 @@ def getFamilyTags (tag):
     f = open('genres.json','r')
     genres = json.load(f)
     f.close()
-    familiy = []
+    family = []
     for genre in genres:
         if genre['name'] == tag:
             for f in genre['family']:
@@ -726,3 +733,5 @@ if __name__ == '__main__':
       'analyzetrack' : AnalyzeTrack
   })
 
+if __name__ == '__main__':
+    app.run(debug = True)
