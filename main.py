@@ -12,6 +12,32 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import fire
 from importlib import reload
 
+from flask import Flask, redirect, url_for, request, render_template
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('static/index.html')
+
+@app.route('/select', methods = ['POST', 'GET'])
+def select():
+    if request.method == 'POST':
+        choice = request.form['pl']
+        if(choice == 'tt'):
+            return redirect(get_Top())
+
+@app.route('/success')
+def goSuccess():
+    return render_template('static/creationSuccessful.html')
+
+@app.route('/topTurkey')
+def get_Top():
+   return getTopTracksByCountry("Turkey", 5, "top turkey")
+    
+
+@app.route('/getSimilar/<artist>_<track>_<count>_<name>')
+def get_similar(artist, track, count, name):
+    return getSimilar(artist, track, count, name)
 
 reload(sys)    # to re-enable sys.setdefaultencoding()
 #sys.setdefaultencoding('utf-8')
@@ -41,10 +67,7 @@ def getSimilar(artist, track, count = 20, playlistName = None):
 
 
 def getUserTopTracks(lastFMUserName = lastFMUserName, period = "1month", count = 20, playlistName = None):
-    
-    print ("%s user name %s" % (username))
-    print (client-id)
-    print (client-secret)
+
     print ("%s\'s top %s tracks (%s)" % (lastFMUserName, count, period))
     result = lastFM.getTopTracks(lastFMUserName, period = period, limit = count) #period="overall"
     
@@ -82,8 +105,7 @@ def getTopTracksByCountry(country, count = 50, playlistName = None):
         
         track_IDs = getTrackIDs(result)
         generatePlaylist (track_IDs, playlistName)
-
-
+        return '/success'
 
 def getTopTracksByArtist(artist, count = 20, playlistName = None):
     
@@ -213,7 +235,7 @@ def getFamilyTags (tag):
     f = open('genres.json','r')
     genres = json.load(f)
     f.close()
-    familiy = []
+    family = []
     for genre in genres:
         if genre['name'] == tag:
             for f in genre['family']:
@@ -726,3 +748,5 @@ if __name__ == '__main__':
       'analyzetrack' : AnalyzeTrack
   })
 
+if __name__ == '__main__':
+    app.run(debug = True)
