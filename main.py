@@ -15,14 +15,28 @@ from importlib import reload
 from flask import Flask
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/select', methods = ['POST', 'GET'])
+def select():
+    if request.method == 'POST':
+        choice = request.form['pl']
+        if(choice == 'tt'):
+            return redirect(get_Top())
+
+@app.route('/success')
+def goSuccess():
+    return render_template('creationSuccessful.html')
+
 @app.route('/topTurkey')
 def get_Top():
-   return getTopTracksByCountry("Turkey", 50, "top turkey")
+   return getTopTracksByCountry("Turkey", 5, "top turkey")
 
 @app.route('/getSimilar/<artist>_<track>_<count>_<name>')
 def get_similar(artist, track, count, name):
     return getSimilar(artist, track, count, name)
-
 reload(sys)    # to re-enable sys.setdefaultencoding()
 #sys.setdefaultencoding('utf-8')
 
@@ -89,6 +103,7 @@ def getTopTracksByCountry(country, count = 50, playlistName = None):
         
         track_IDs = getTrackIDs(result)
         generatePlaylist (track_IDs, playlistName)
+        return '/success'
 
 
 
