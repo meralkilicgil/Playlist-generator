@@ -17,7 +17,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+<<<<<<< HEAD
     return render_template('static/index.html')
+=======
+    return render_template('index.html')
+>>>>>>> 261f9d09092e98407d18f1f39fa0fda2c59fad3d
 
 @app.route('/select', methods = ['POST', 'GET'])
 def select():
@@ -28,17 +32,27 @@ def select():
 
 @app.route('/success')
 def goSuccess():
+<<<<<<< HEAD
     return render_template('static/creationSuccessful.html')
+=======
+    return render_template('creationSuccessful.html')
+>>>>>>> 261f9d09092e98407d18f1f39fa0fda2c59fad3d
 
 @app.route('/topTurkey')
 def get_Top():
    return getTopTracksByCountry("Turkey", 5, "top turkey")
+<<<<<<< HEAD
     
+=======
+>>>>>>> 261f9d09092e98407d18f1f39fa0fda2c59fad3d
 
 @app.route('/getSimilar/<artist>_<track>_<count>_<name>')
 def get_similar(artist, track, count, name):
     return getSimilar(artist, track, count, name)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 261f9d09092e98407d18f1f39fa0fda2c59fad3d
 reload(sys)    # to re-enable sys.setdefaultencoding()
 #sys.setdefaultencoding('utf-8')
 
@@ -106,6 +120,11 @@ def getTopTracksByCountry(country, count = 50, playlistName = None):
         track_IDs = getTrackIDs(result)
         generatePlaylist (track_IDs, playlistName)
         return '/success'
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 261f9d09092e98407d18f1f39fa0fda2c59fad3d
 
 def getTopTracksByArtist(artist, count = 20, playlistName = None):
     
@@ -749,4 +768,8 @@ if __name__ == '__main__':
   })
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     app.run(debug = True)
+=======
+    app.run(debug = True)
+>>>>>>> 261f9d09092e98407d18f1f39fa0fda2c59fad3d

@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"access_token": "BQAHknkqoQtQ4I1NhNJmRCuQ1CkKYFQ9lCSBciM3J6ehVnx-eElK07ojGj0H9O1cVlCpDQXWiLC8serzVg4idfeTyAXOFaOak6wg0KcRGov9V0Iky9Ulpy1cVmFgRolN1BMoAbQYFkQDOEJDypHHvtArF_OsUTeA38a4Lk5YqO0X_rJ6pJk", "token_type": "Bearer", "expires_in": 3600, "scope": "playlist-modify-public", "expires_at": 1577021628, "refresh_token": "AQB-DLvMWoX_iZjkzTULWMwneqvydtBs8omgGZVPGB2irZ_NT9NfP41yKz6-FWAT4FmFdfJqnJ8XxrqPCSq6TMa6jDoeQ9ZJ3_a_zwgXsyxl_oNN7geK993E__9TjvRqztY"}
+=======
+{"access_token": "BQCDX3SntAfOpCZjWK_6zUPAwMg4E_t4k10LgHTvlRMmVefL0sZfumrBiJ9vwnxEYi0HzBRZA8U1kKUDbeM_jpJgB6iXHd2Vm7N7O_MCOUCJ0YdKvDDh-EbXnpIQS5uv_Tpk5DEaxS5zUXI-kgQkN--cOgH2gKjhmcdjP6KQ6mfY7wUm6i0", "token_type": "Bearer", "expires_in": 3600, "scope": "playlist-modify-public", "expires_at": 1575401486, "refresh_token": "AQB-DLvMWoX_iZjkzTULWMwneqvydtBs8omgGZVPGB2irZ_NT9NfP41yKz6-FWAT4FmFdfJqnJ8XxrqPCSq6TMa6jDoeQ9ZJ3_a_zwgXsyxl_oNN7geK993E__9TjvRqztY"}
+>>>>>>> 261f9d09092e98407d18f1f39fa0fda2c59fad3d
