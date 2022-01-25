@@ -748,8 +748,4 @@ if __name__ == '__main__':
   })
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     app.run(debug = True)
-=======
-    app.run(debug = True)
->>>>>>> 261f9d09092e98407d18f1f39fa0fda2c59fad3d
