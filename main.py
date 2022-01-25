@@ -105,11 +105,6 @@ def getTopTracksByCountry(country, count = 50, playlistName = None):
         track_IDs = getTrackIDs(result)
         generatePlaylist (track_IDs, playlistName)
         return '/success'
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 261f9d09092e98407d18f1f39fa0fda2c59fad3d
 
 def getTopTracksByArtist(artist, count = 20, playlistName = None):
     
